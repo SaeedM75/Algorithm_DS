@@ -8,9 +8,9 @@ def compute_min_refills(distance, tank, stops):
     i = 0
     d = 0
     while i < len(stops) :
-        if (stops[i] - d) < tank:
+        if (stops[i] - d) <= tank:
             if i + 1 < len(stops):
-                if (stops[i + 1] - d) < tank:
+                if (stops[i + 1] - d) <= tank:
                     i += 1
                 else:
                     d = stops[i]
