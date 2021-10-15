@@ -4,6 +4,21 @@ import sys
 def get_optimal_value(capacity, weights, values):
     value = 0.
     # write your code here
+    w = 0
+    vtw = []
+    for i in range(len(values)):
+        vtw.append(values[i]/weights[i])
+
+    values = vtw
+    indexes = list(range(len(values)))
+    indexes.sort(key=lambda i:values[i], reverse= True)
+    values.sort(reverse= True)
+    index = 0
+    while w < capacity:
+        add_w = min(weights[indexes[index]], capacity - w)
+        value += add_w * values[index]
+        index += 1
+        w += add_w
 
     return value
 
